@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int countDigits(long long n) {
+    // Handle zero as a special case
+    if (n == 0) return 1;
+
+    // Work with absolute value to count digits
+    if (n < 0) n = -n;
+
+    int count = 0;
+    while (n != 0) {
+        n /= 10;
+        count++;
+    }
+    return count;
+}
+
+int main(void) {
+    long long n;
+
+    printf("Enter an integer: ");
+    if (scanf("%lld", &n) != 1) {
+        printf("Invalid input.
+");
+        return 1;
+    }
+
+    int digits = countDigits(n);
+    printf("Digits: %d
+", digits);
+    return 0;
+}
